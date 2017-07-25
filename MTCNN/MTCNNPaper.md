@@ -21,15 +21,18 @@ ________
 - The performance of existed multiple CNNs for face detection is limited by the following facts: 
 
   - (1) Some filters lack diversity of weights that may limit them to produce discriminative description. 
-
-
   - (2) Compared to other multi-class objection detection and classification tasks, face detection is a challenge binary classification task, so it may need less numbers of filters but more discrimination of them. 
+
 
 - mining hard samples in training is critical to strengthen the power of detector. However, traditional hard sample mining usually performs an offline manner, which significantly increases the manual operations. It is desirable to design an online hard sample mining method for face detection and alignment, which is adaptive to the current training process automatically.
 ### how
 - The proposed CNNs consist of three stages. 
   - first stage: it produces candidate windows quickly through a shallow CNN (Proposal Network,P-Net).![](P-Net.png)
-  - second stage: it refines the windows to reject a large number of non-faces windows through a more complex CNN (Refinement Network, R-Net).![](R-Net.png)
+
+  - second stage: it refines the windows to reject a large number of non-faces windows through a more complex CNN (Refinement Network, R-Net).
+
+    ![](R-Net.png)
+
   - third stage: it uses a more powerful CNN to refine the result and output final bounding box and facial landmarks positions (Output Network, O-Net).![](O-Net.png)
 - APPROACH
   - Given an image, we initially resize it to different scales to build an image pyramid, which is the input of the following three-stage cascaded framework
